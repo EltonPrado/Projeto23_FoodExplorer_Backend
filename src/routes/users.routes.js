@@ -8,4 +8,4 @@ usersRoutes.post("/", (request, response) => {
   response.json({ name, email, password });
 })
 
-module.exports = useRoutes;
+module.exports = usersRoutes;
