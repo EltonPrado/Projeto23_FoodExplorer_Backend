@@ -1,5 +1,7 @@
 <h1>FoodExplorer</h1>
 
+<br>
+
 <h2> Súmario </h2>
 
 1. [O projeto](#o-projeto)
@@ -13,11 +15,11 @@
 
 ## O Projeto
 
-O projeto foi desenvolvido como desafio final do curso Explorer da Rocketseat. Segue a ideia de uma aplicação com menu interativo para um restaurante fictício. Na aplicação temos duas personas: o admin e o usuário;
-
-**admin**: é a pessoa responsável pelo restaurante, logo, poderá criar, visualizar, editar e apagar um prato a qualquer momento. Cada prato deve conter uma imagem, um nome, uma categoria, uma breve descrição, os ingredientes e o seu preço. Ao clicar em adicionar prato, o admin receberá uma mensagem de sucesso e será redirecionado para a página principal;
+O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketseat](https://www.rocketseat.com.br/explorer). Ele segue a ideia de uma aplicação com cardápio interativo e digital para um restaurante fictício. Na aplicação temos duas personas: o usuário e o admin;
 
 **usuário**: irá visualizar todos os pratos cadastrados e, quando clicar em um prato, será redirecionado para uma nova tela com informações mais detalhadas sobre ele.
+
+**admin**: é a pessoa responsável pelo restaurante, logo, poderá criar, visualizar, editar e apagar um prato a qualquer momento. Cada prato deve conter uma imagem, um nome, uma categoria, uma breve descrição, os ingredientes e o seu preço. Ao clicar em adicionar prato, o admin receberá uma mensagem de sucesso e será redirecionado para a página principal;
 
 <br>
 
