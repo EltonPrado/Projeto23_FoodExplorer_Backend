@@ -4,7 +4,7 @@
 
 <p align="center">
   <img 
-    alt="imagem do fluxograma da aplicação" 
+    alt="imagem de capa do projeto" 
     src=".github/capa.png" 
     width="100%"
   >
