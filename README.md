@@ -2,6 +2,16 @@
 
 <br>
 
+<p align="center">
+  <img 
+    alt="imagem do fluxograma da aplicação" 
+    src=".github/capa.png" 
+    width="100%"
+  >
+</p>
+
+<br>
+
 <h2> Sumário </h2>
 
 1. [O projeto](#o-projeto)
