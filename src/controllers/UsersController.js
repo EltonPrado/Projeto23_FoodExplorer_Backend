@@ -50,13 +50,13 @@ class UsersController {
 
     if( password && old_password ) {
       const checkOldPassword = await compare(old_password, user.password);
-    }
 
-    if(!checkOldPassword) {
-      throw new AppError("Senha antiga não confere.");
+      if(!checkOldPassword) {
+        throw new AppError("Senha antiga não confere.");
+      }
+      
+      user.password = await hash(password, 8);
     }
-
-    user.password = await hash(password, 8);
 
     await database.run(`
       UPDATE users SET
