@@ -5,7 +5,7 @@
 <p align="center">
   <img 
     alt="imagem de capa do projeto" 
-    src="" 
+    src=".github/capa.png" 
     width="100%"
   >
 </p>
