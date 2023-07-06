@@ -5,7 +5,7 @@ const knex = require("../database/knex");
 
 class UsersController {
   async create(request, response) {
-    const { name, email, password } = request.body;
+    const { name, email, password, admin } = request.body;
 
     const checkUserExists = await knex("users").where({ email }).first();
 
@@ -19,6 +19,7 @@ class UsersController {
       name,
       email,
       password: hashedPassword,
+      admin
     });
 
     return response.status(201).json();
@@ -28,15 +29,12 @@ class UsersController {
     const { name, email, password, old_password } = request.body;
     const { id } = request.params;
 
-    /*const database = await sqliteConnection();*/
-    /*const user = await database.get("SELECT * FROM users WHERE id = (?)", [id]);*/
     const user = await knex("users").where({ id }).first();
 
     if (!user) {
       throw new AppError("Usuário não encontrado");
     }
     
-    /*const userWithUpdatedEmail = await database.get("SELECT * FROM users WHERE email = (?)", [email]);*/
     const userWithUpdatedEmail = await knex("users").where({ email }).first();
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
@@ -60,20 +58,10 @@ class UsersController {
       user.password = await hash(password, 8);
     }
 
-    /*await database.run(`
-      UPDATE users SET
-      name = ?,
-      email = ?,
-      password = ?,
-      updated_at = DATETIME('now')
-      WHERE id = ?`,
-      [user.name, user.email, user.password, id]
-    );*/
-    await knex("users").update({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      password: user.password
+    await knex("users").where({ id }).update({
+      name,
+      email,
+      password: user.password,
     });
 
     return response.status(200).json();
