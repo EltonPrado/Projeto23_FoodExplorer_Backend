@@ -16,8 +16,10 @@
 
 1. [O projeto](#o-projeto)
 2. [Fluxograma da aplicação](#fluxograma-da-aplicação)
+<!--
 3. [Diagrama do banco de dados](#diagrama-do-banco-de-dados)
-4. [Ferramentas e Tecnologias](#ferramentas-e-tecnologias)
+-->
+3. [Ferramentas e Tecnologias](#ferramentas-e-tecnologias)
 <!--
 5. [Funcionalidades](#funcionalidades)
 -->
@@ -54,8 +56,8 @@ O fluxograma da aplicação ou as rotas de acesso de cada usuário é dividido d
   >
 </p>
 
+<!--
 <br>
-
 ## Diagrama do banco de dados
 
 Utilizando a ferramenta online drawSQL criou-se o diagrama da estrutura do banco de dados da aplicação. Ele vai funcionar da seguinte forma:
@@ -71,7 +73,7 @@ Utilizando a ferramenta online drawSQL criou-se o diagrama da estrutura do banco
 </p>
 
 <br>
-
+-->
 ## Ferramentas e Tecnologias
 
 Será utilizado as seguintes tecnologias para desenvolver o backend desse projeto:

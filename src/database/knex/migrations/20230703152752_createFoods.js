@@ -1,7 +1,7 @@
 exports.up = knex => knex.schema.createTable("foods", table => {
   table.increments("id");
-  table.text("title").notNullable();
   table.text("category").notNullable();
+  table.text("title").notNullable();
   table.text("description");
   table.float("price").notNullable();
   table.text("image").notNullable();
