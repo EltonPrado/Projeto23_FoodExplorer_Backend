@@ -64,6 +64,8 @@ class UsersController {
       password: user.password,
     });
 
+    await knex("users").where({ id }).update('updated_at', knex.fn.now());
+
     return response.status(200).json();
   }
 }
