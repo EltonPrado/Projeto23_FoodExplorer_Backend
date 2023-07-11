@@ -8,6 +8,6 @@ exports.seed = async function(knex) {
       email: "admin@email.com",
       password: await hash("123321", 8),
       admin: true,
-    },
+    }
   ]);
 };
