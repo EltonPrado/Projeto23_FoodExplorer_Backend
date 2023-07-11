@@ -11,7 +11,7 @@ const upload = multer(uploadConfig.MULTER);
 
 const foodsController = new FoodsController();
 
-foodsController.use(ensureAuthenticated);
+foodsRoutes.use(ensureAuthenticated);
 
 foodsRoutes.post("/", ensureAdmin, upload.single("image"), foodsController.create);
 foodsRoutes.put("/:id", ensureAdmin, upload.single("image"), foodsController.update);
