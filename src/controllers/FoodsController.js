@@ -81,14 +81,6 @@ class FoodsController {
     });
   }
 
-  async delete(request, response) {
-    const { id } = request.params;
-
-    await knex("foods").where({ id }).delete();
-
-    return response.status(200).json();
-  }
-
   async index(request, response) {
     const { title, ingredients } = request.query;
 
@@ -128,6 +120,14 @@ class FoodsController {
     })
 
     return response.status(200).json(foodsWithIngredients);
+  }
+
+  async delete(request, response) {
+    const { id } = request.params;
+
+    await knex("foods").where({ id }).delete();
+
+    return response.status(200).json();
   }
 }
 
