@@ -5,7 +5,7 @@ const knex = require("../database/knex");
 
 class UsersController {
   async create(request, response) {
-    const { name, email, password } = request.body;
+    const { name, email, password, isAdmin } = request.body;
 
     const checkUserExists = await knex("users").where({ email }).first();
 
@@ -19,6 +19,7 @@ class UsersController {
       name,
       email,
       password: hashedPassword,
+      isAdmin,
     });
 
     return response.status(201).json();
