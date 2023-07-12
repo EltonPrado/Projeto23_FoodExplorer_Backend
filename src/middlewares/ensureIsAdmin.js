@@ -1,7 +1,7 @@
 const knex = require('../database/knex');
 const AppError = require('../utils/AppError');
 
-async function ensureAdmin(request, response, next) {
+async function ensureIsAdmin(request, response, next) {
   const user_id = request.user.id;
 
   const user = await knex("users").where({id: user_id}).first();
@@ -13,4 +13,4 @@ async function ensureAdmin(request, response, next) {
   next();
 }
 
-module.exports = ensureAdmin;
+module.exports = ensureIsAdmin;
