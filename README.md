@@ -15,15 +15,11 @@
 <h2> Sumário </h2>
 
 1. [O projeto](#o-projeto)
-2. [Fluxograma da aplicação](#fluxograma-da-aplicação)
+2. [Tecnologias, Bibliotecas e Ferramentas](#tecnologias-bibliotecas-e-ferramentas)
+3. [Funcionalidades](#funcionalidades)
 <!--
-3. [Diagrama do banco de dados](#diagrama-do-banco-de-dados)
+4. [Utilizando a API](#utilizando-a-api)
 -->
-3. [Ferramentas e Tecnologias](#ferramentas-e-tecnologias)
-<!--
-5. [Funcionalidades](#funcionalidades)
--->
-
 <br>
 
 ## O Projeto
@@ -34,17 +30,14 @@ O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketsea
 
 **usuário admin**: é a pessoa responsável pelo restaurante, logo, poderá criar, visualizar, editar e apagar um prato a qualquer momento. Cada prato deve conter uma imagem, um nome, uma categoria, uma breve descrição, os ingredientes e o seu preço. Ao clicar em adicionar prato, o admin receberá uma mensagem de sucesso e será redirecionado para a página principal;
 
-<br>
-
 Quer conferir o FoodExplorer? [Visite o projeto online.]()
 
-**OBS: A aplicação está em desenvolvimento.**
-
+**OBS: Está sendo desenvolvido o frontend da aplicação.**
 <br>
 
-## Fluxograma da aplicação
+### Fluxograma da aplicação
 
-O fluxograma da aplicação ou as rotas de acesso de cada usuário é dividido da seguinte maneira:
+Visto que temos duas personas, o fluxograma da aplicação ou as rotas de acesso de cada usuário é dividido da seguinte maneira:
 
 <br>
 
@@ -56,9 +49,11 @@ O fluxograma da aplicação ou as rotas de acesso de cada usuário é dividido d
   >
 </p>
 
+<br>
+
 <!--
 <br>
-## Diagrama do banco de dados
+### Diagrama do banco de dados
 
 Utilizando a ferramenta online drawSQL criou-se o diagrama da estrutura do banco de dados da aplicação. Ele vai funcionar da seguinte forma:
 
@@ -74,43 +69,43 @@ Utilizando a ferramenta online drawSQL criou-se o diagrama da estrutura do banco
 
 <br>
 -->
-## Ferramentas e Tecnologias
 
-Será utilizado as seguintes tecnologias para desenvolver o backend desse projeto:
+## Tecnologias, Bibliotecas e Ferramentas
 
-- HTML
-- JavaScript
-- NodeJS
-  - bcryptjs
-  - Cors
-  - Express
-  - JSONwebtoken
-  - Knex
-  - multer
-  - SQlite
-  - JWT;
-  - Middlewares
-  - API Restful
-  - PM2
-  - Deploy e utilização do render
-  - Variáveis de ambiente
-  - Testes automatizados
-  - Jest
-- Beekeeper
-- Insomnia
-- Git
-- GitHub
+Estão sendo utilizadas as seguintes tecnologias, bibliotecas e ferramentas para o desenvolvimento do backend desse projeto:
+
+- **JavaScript** - Faz toda a lógica da aplicação;
+- **NodeJS** - Executa o JavaScript fora do navegador;
+  - **Express** - Framework responsável por lidar com as requisições HTTP;
+  - **Middleware** - Intercepta as solicitações-respostas da aplicação;
+  - **SQlite** - Faz o armazenamento dos dados;
+  - **bcryptjs** - Criptografa as senhas de usuário;
+  - **Knex** - Gera os comandos SQL;
+  - **JWT (JSONwebtoken)** - Faz a troca de informações no fluxo de autenticação entre aplicação e a API;
+  - **multer** - Gerencia o upload de imagens;
+  - **API Restful** - API que pode ser consumida cumprindo e aplicando as diretrizes RESTful;
+  - **Cors** - Faz a conexão entre o backend e o frontend da aplicação;
+  - **dotenv** - Cria variáveis de ambiente para lidar com dados sensíveis da aplicação;
+  - **PM2** - Mantém a API sempre em execução;
+  - **Deploy com render** - Utilizando o render para fazer a hospedagem do backend;
+  - **Jest** - Realiza testes automatizados de integração;
+- **Insomnia** - Lida com os testes da API fora do navegador;
+- **Beekeper Studio** - Auxilia na visualização e execução de funções em nosso banco da dados;
+- **Git** - Responsável por realizar o gerenciamento de versionamento do código;
+- **GitHub** - Utilizado para armazenar a aplicação em nuvem.
 
 <br>
 
-<!--
 ## Funcionalidades
 
 A aplicação vai nos permitir:
-- Cadastrar usuário;
-- autenticar usuário para fazer login;
-- Atualizar e-mail, senha ou nome de um usuário;
-- Mostrar informações de um prato especifico;
-- Cadastrar, atualizar, mostrar ou deletar um prato.
-- Cadastrar, ou mostrar um ingrediente.
+
+- [x] Cadastrar usuário;
+- [x] autenticar usuário para fazer login;
+- [x] Atualizar e-mail, senha ou nome de um usuário;
+- [x] Mostrar informações de um prato especifico;
+- [x] Cadastrar, atualizar, mostrar ou deletar um prato (usuário admin).
+<!--
+## Utilizando a API
+- [Iniciando a aplicação]()
 -->
