@@ -11,7 +11,7 @@ class FoodsController {
 
     const filename = await diskStorage.saveFile(imageFilename);
 
-    const food_id = await knex("foods").insert({
+    const [food_id] = await knex("foods").insert({
       image: filename,
       title,
       category,
@@ -19,12 +19,25 @@ class FoodsController {
       price
     });
 
-    const ingredientsInsert = ingredients.map(ingredient => {
-      return {
-        name: ingredient,
-        food_id
+    const hasOnlyOneIngredient = typeof(ingredients) === "string";
+
+    let ingredientsInsert;
+
+    if(hasOnlyOneIngredient) {
+      ingredientsInsert = {
+        food_id,
+        name: ingredients
       }
-    });
+    } else if (ingredients.length > 1) {
+      ingredientsInsert = ingredients.map(ingredient => {
+        return {
+          food_id,
+          name: ingredient
+        }
+      });
+    } else {
+      return
+    }
 
     await knex("ingredients").insert(ingredientsInsert);
     
@@ -32,7 +45,7 @@ class FoodsController {
   }
 
   async update(request, response) {
-    const { title, description, category, price, ingredients } = request.body;
+    const { title, category, description, price, ingredients } = request.body;
     const { id } = request.params;
 
     const { filename: imageFilename } = request.file;
@@ -46,34 +59,46 @@ class FoodsController {
     }
 
     const filename = await diskStorage.saveFile(imageFilename);
-
+    
     food.image = filename;
+
     food.title = title ?? food.title;
-    food.description = description ?? food.description;
     food.category = category ?? food.category;
+    food.description = description ?? food.description;
     food.price = price ?? food.price;
 
     await knex("foods").where({ id }).update(food);
     await knex("foods").where({ id }).update('updated_at', knex.fn.now());
 
-    ingredientsInsert = ingredients.map(ingredient => {
-      return {
-        food_id: food.id,
-        name: ingredient
-      }
-    })
-    
-    await knex("ingredients").where({ food_id: id }).delete()
-    await knex("ingredients").where({ food_id: id }).insert(ingredientsInsert)
+    const hasOnlyOneIngredient = typeof(ingredients) === "string";
 
-    return response.status(200).json
+    let ingredientsInsert;
+
+    if (hasOnlyOneIngredient) {
+      ingredientsInsert = {
+        food_id: food.id,
+        name: ingredients
+      }
+    } else if (ingredients.length > 1) {
+      ingredientsInsert = ingredients.map(ingredient => {
+        return {
+          food_id: food.id,
+          name : ingredient
+        }
+      })
+      
+      await knex("ingredients").where({ food_id: id}).delete()
+      await knex("ingredients").where({ food_id: id}).insert(ingredientsInsert)
+    }
+
+    return response.status(200).json();
   }
 
   async show(request, response) {
     const { id } = request.params;
 
     const food = await knex("foods").where({ id }).first();
-    const ingredients = await knex("ingredients").where({ foods_id: id }).orderBy("name");
+    const ingredients = await knex("ingredients").where({ food_id: id }).orderBy("name");
 
     return response.status(200).json({
       ...food,
