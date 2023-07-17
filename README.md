@@ -136,27 +136,41 @@ Antes de começar a utilização da API é necessário ter instalado em sua máq
 
 **DICA**: Comece criando uma pasta na sua area de trabalho ou local a desejar, pois facilitará na busca pelos arquivos/ pasta clonada.
 
+- Acesse a sua pasta dentro do terminal/ cmd
 ```bash
-# Acesse a sua pasta dentro do terminal/ cmd
+# Comando
 $ cd + caminhoDaSuaPasta (arraste a pasta que o caminho será colocado automaticamente)
+```
 
-# Clone o projeto para dentro da sua pasta
+- Clone o projeto para dentro da sua pasta
+```bash
+# Comando
 $ git clone https://github.com/EltonPrado/Projeto23_FoodExplorer_Backend.git
+```
 
-# Entre no diretório
+- Entre no diretório
+```bash
+# Comando
 $ cd Projeto23_FoodExplorer_Backend
+```
 
-# Instale as dependências
+- Instale as dependências
+```bash
+# Comando
 $ npm install
+```
 
-# Execute as migrations e o seed
+- Execute as migrations e o seed
+```bash
+# Comando
 $ npm run migrate
 $ npm run seed
 ```
-**OBS**: Para simplificar os comandos `npx knex migrate:latest` e `npx knex seed:run` para: `npm run migrate` e `npm run seed` foi criado scripts dentro do arquivo package.json.
+**OBS**: Para simplificar os comandos `npx knex migrate:latest` e `npx knex seed:run` para `npm run migrate` e `npm run seed` foi criado scripts dentro do arquivo package.json.
 
+- Inicie o servidor local da aplicação
 ```bash
-# Inicie o servidor local da aplicação
+# Comando
 $ npm run dev
 ```
 
