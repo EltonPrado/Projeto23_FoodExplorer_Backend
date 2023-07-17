@@ -17,18 +17,21 @@
 1. [O projeto](#o-projeto)
 2. [Tecnologias, Bibliotecas e Ferramentas](#tecnologias-bibliotecas-e-ferramentas)
 3. [Funcionalidades](#funcionalidades)
-<!--
 4. [Utilizando a API](#utilizando-a-api)
--->
+
 <br>
 
 ## O Projeto
+O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketseat](https://www.rocketseat.com.br/explorer). Ele segue a ideia de uma aplicação com cardápio interativo e digital para um restaurante fictício. 
 
-O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketseat](https://www.rocketseat.com.br/explorer). Ele segue a ideia de uma aplicação com cardápio interativo e digital para um restaurante fictício. Na aplicação temos duas personas: o usuário e o admin;
+**OBS**: O layout da aplicação está disponível e pode ser acessado através do [Figma](https://www.figma.com/file/GkqG5AUJe3ppcUEHfvOX6z/food-explorer?type=design&node-id=0-1&mode=design&t=wB70PWRN3XpNKK4t-0).
+<br>
+
+Na aplicação temos duas personas:
 
 **usuário comum (cadastrado)**: irá visualizar todos os pratos cadastrados e, quando clicar em um prato, será redirecionado para uma nova tela com informações mais detalhadas sobre ele.
 
-**usuário admin**: é a pessoa responsável pelo restaurante, logo, poderá criar, visualizar, editar e apagar um prato a qualquer momento. Cada prato deve conter uma imagem, um nome, uma categoria, uma breve descrição, os ingredientes e o seu preço. Ao clicar em adicionar prato, o admin receberá uma mensagem de sucesso e será redirecionado para a página principal;
+**usuário admin**: é a pessoa responsável pelo restaurante, logo, poderá criar, visualizar, editar e apagar um prato a qualquer momento. Cada prato contem uma imagem, um nome, uma categoria, uma breve descrição, os ingredientes e o seu preço. Ao clicar em adicionar prato, o admin receberá uma mensagem de sucesso e será redirecionado para a página principal;
 
 Quer conferir o FoodExplorer? [Visite o projeto online.]()
 
@@ -36,7 +39,6 @@ Quer conferir o FoodExplorer? [Visite o projeto online.]()
 <br>
 
 ### Fluxograma da aplicação
-
 Visto que temos duas personas, o fluxograma da aplicação ou as rotas de acesso de cada usuário é dividido da seguinte maneira:
 
 <br>
@@ -104,8 +106,71 @@ A aplicação vai nos permitir:
 - [x] autenticar usuário para fazer login;
 - [x] Atualizar e-mail, senha ou nome de um usuário;
 - [x] Mostrar informações de um prato especifico;
-- [x] Cadastrar, atualizar, mostrar ou deletar um prato (usuário admin).
-<!--
+- [x] Cadastrar, atualizar, mostrar ou deletar um prato.
+
+<br>
+
 ## Utilizando a API
-- [Iniciando a aplicação]()
+
+- [Pré-requisitos de inicialização](#pré-requisitos-de-inicialização)
+- [Iniciando o servidor](#iniciando-o-servidor)
+- [Trabalhando as requisições](#trabalhando-as-requisições)
+  - [Seções](#seções)
+
+<br>
+
+A aplicação FoodExplorer é dividida em duas partes:
+1. Servidor/ Backend (API)
+2. Frontend
+
+**IMPORTANTE**: O backend precisa estar rodando na mesma maquina que o frontend para que ele seja renderizado de maneira correta.
+
+### Pré-requisitos de inicialização
+
+Antes de começar a utilização da API é necessário ter instalado em sua máquina as seguintes ferramentas de trabalho:
+- [VSCode](https://code.visualstudio.com/download) (ou algum editor de código)
+- [Git](https://git-scm.com/download/) (de acordo com o seu sistema operacional)
+- [Node.js](https://nodejs.org/pt-br/download/current) (de acordo com o seu sistema operacional)
+
+### Iniciando o servidor
+
+**DICA**: Comece criando uma pasta na sua area de trabalho ou local a desejar, pois facilitará na busca pelos arquivos/ pasta clonada.
+
+```bash
+# Acesse a sua pasta dentro do terminal/ cmd
+$ cd + caminhoDaSuaPasta (arraste a pasta que o caminho será colocado automaticamente)
+
+# Clone o projeto para dentro da sua pasta
+$ git clone https://github.com/EltonPrado/Projeto23_FoodExplorer_Backend.git
+
+# Entre no diretório
+$ cd Projeto23_FoodExplorer_Backend
+
+# Instale as dependências
+$ npm install
+
+# Execute as migrations e o seed
+$ npm run migrate
+$ npm run seed
+```
+**OBS**: Para simplificar os comandos `npx knex migrate:latest` e `npx knex seed:run` para: `npm run migrate` e `npm run seed` foi criado scripts dentro do arquivo package.json.
+
+```bash
+# Inicie o servidor local da aplicação
+$ npm run dev
+```
+
+Se tudo ocorrer bem, a seguinte mensagem vai aparecer no terminal:
+
+```bash
+Server is running on port 3333.
+```
+
+Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize a URL base: `https://localhost:3333` dentro do Insomnia para fazer as requisições e acessar os recursos da API.
+<!--
+### Trabalhando as requisições
+
+#### Seções
+
+- **Criando uma seção**
 -->
