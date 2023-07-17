@@ -127,20 +127,21 @@ A aplicação FoodExplorer é dividida em duas partes:
 
 ### Pré-requisitos de inicialização
 
-Antes de começar a utilização da API é necessário ter instalado em sua máquina as seguintes ferramentas de trabalho:
+Antes de começar a utilizar a API é necessário ter instalado em sua máquina as seguintes ferramentas de trabalho:
 - [VSCode](https://code.visualstudio.com/download) (ou algum editor de código)
 - [Git](https://git-scm.com/download/) (de acordo com o seu sistema operacional)
 - [Node.js](https://nodejs.org/pt-br/download/current) (de acordo com o seu sistema operacional)
 
 ### Iniciando o servidor
 
-**DICA**: Comece criando uma pasta na sua area de trabalho ou local a desejar, pois facilitará na busca pelos arquivos/ pasta clonada.
+**DICA**: Comece criando uma pasta na sua area de trabalho ou local desejado, pois facilitará na busca pelos arquivos/ pasta clonada.
 
 - Acesse a sua pasta dentro do terminal/ cmd
 ```bash
 # Comando
-$ cd + caminhoDaSuaPasta (arraste a pasta que o caminho será colocado automaticamente)
+$ cd + caminhoDaSuaPasta
 ```
+**DICA**: Arraste a pasta para dentro do cmd, assim o caminho será colocado automaticamente.
 
 - Clone o projeto para dentro da sua pasta
 ```bash
