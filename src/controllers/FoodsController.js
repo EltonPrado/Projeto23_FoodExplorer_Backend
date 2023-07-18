@@ -48,27 +48,12 @@ class FoodsController {
     const { title, category, description, price, ingredients } = request.body;
     const { id } = request.params;
 
-    const { filename: imageFilename } = request.file;
-
-    const diskStorage = new DiskStorage();
-
     const food = await knex("foods").where({ id }).first();
-
-    if(food.image) {
-      await diskStorage.deleteFile(food.image);
-    }
-
-    const filename = await diskStorage.saveFile(imageFilename);
-    
-    food.image = filename;
 
     food.title = title ?? food.title;
     food.category = category ?? food.category;
     food.description = description ?? food.description;
     food.price = price ?? food.price;
-
-    await knex("foods").where({ id }).update(food);
-    await knex("foods").where({ id }).update('updated_at', knex.fn.now());
 
     const hasOnlyOneIngredient = typeof(ingredients) === "string";
 
@@ -90,6 +75,13 @@ class FoodsController {
       await knex("ingredients").where({ food_id: id}).delete()
       await knex("ingredients").where({ food_id: id}).insert(ingredientsInsert)
     }
+
+    await knex("foods").where({ id }).update({
+      title,
+      category,
+      description,
+      price,
+    });
 
     return response.status(200).json();
   }
