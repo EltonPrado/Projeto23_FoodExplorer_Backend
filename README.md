@@ -321,6 +321,8 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
       ]
     }
   ```
+  **IMPORTANTE**: Apenas as informações passadas serão atualizadas.
+  
   Será retornado uma resposta com o status code 200 se ok.
 
 - **Atualizar foto do prato** <br>
