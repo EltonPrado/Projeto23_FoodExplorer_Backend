@@ -443,7 +443,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
 #### Fotos
 - **Mostrar foto de um prato** <br>
   Para mostrar a foto de um prato cadastrado/ criado devemos:
-  - Usar o recurso: `files`
+  - Criar o recurso: `files`
   - URL da rota: `http://localhost:3333/files/dc892ae64ff157ff6306-Mask group.png`
   - Método de requisição: `GET`
   - Padrão do corpo da requisição: `Body` (padrão)
