@@ -20,7 +20,6 @@
 4. [Utilizando a API](#utilizando-a-api)
 5. [Autor](#autor)
 
-<br>
 
 ## O Projeto
 O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketseat](https://www.rocketseat.com.br/explorer). Ele segue a ideia de uma aplicação com cardápio interativo e digital para um restaurante fictício. 
@@ -74,13 +73,12 @@ $ email: admin@email.com
 $ password: 123321
 ```
 
-**OBS: Está sendo desenvolvido o frontend da aplicação. Porem, o backend pode sofrer refatoração se necessário.**
+**OBS: No momento está sendo desenvolvido o frontend da aplicação. Caso for necessário, o backend poderá sofrer refatoração para o melhoramento do mesmo.**
 
-<br>
 
 ## Tecnologias, Bibliotecas e Ferramentas
 
-Estão sendo utilizadas as seguintes tecnologias, bibliotecas e ferramentas para o desenvolvimento do backend desse projeto:
+Foram utilizadas as seguintes tecnologias, bibliotecas e ferramentas para o desenvolvimento do backend desse projeto:
 
 - **JavaScript** - Faz toda a lógica da aplicação;
 - **NodeJS** - Executa o JavaScript fora do navegador;
@@ -102,7 +100,6 @@ Estão sendo utilizadas as seguintes tecnologias, bibliotecas e ferramentas para
 - **Git** - Responsável por realizar o gerenciamento de versionamento do código;
 - **GitHub** - Utilizado para armazenar a aplicação em nuvem.
 
-<br>
 
 ## Funcionalidades
 
@@ -114,7 +111,6 @@ A aplicação vai nos permitir:
 - [x] Mostrar informações de um prato especifico;
 - [x] Cadastrar, atualizar, mostrar ou deletar um prato.
 
-<br>
 
 ## Utilizando a API
 
@@ -451,6 +447,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   - Padrão do corpo da requisição: `Body` (padrão)
   
   Será retornado a imagem do prato como resposta.
+
 
 ## Autor
 
