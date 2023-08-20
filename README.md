@@ -33,7 +33,7 @@ Na aplicação temos duas personas:
 
 - **usuário admin**: é a pessoa responsável pelo restaurante, logo, poderá criar, visualizar, editar e apagar um prato a qualquer momento. Cada prato contem uma imagem, um nome, uma categoria, uma breve descrição, os ingredientes e o seu preço. Ao clicar em adicionar prato, o admin receberá uma mensagem de sucesso e será redirecionado para a página principal;
 
-### Fluxograma
+### Fluxograma e Diagrama
 Visto que temos duas personas, o fluxograma da aplicação ou as rotas de acesso de cada usuário é dividido da seguinte maneira:
 
 <br>
@@ -48,9 +48,8 @@ Visto que temos duas personas, o fluxograma da aplicação ou as rotas de acesso
 
 <!--
 <br>
-### Diagrama do banco de dados
 
-Utilizando a ferramenta online drawSQL criou-se o diagrama da estrutura do banco de dados da aplicação. Ele vai funcionar da seguinte forma:
+Já para o diagrama foi utilizando a ferramenta online drawSQL. Com ela criou-se a estrutura do banco de dados da aplicação, que por sua vez, funcionará da seguinte forma:
 
 <br>
 
@@ -119,6 +118,7 @@ A aplicação vai nos permitir:
 - [Trabalhando as requisições](#trabalhando-as-requisições)
   - [Usuários](#usuários)
   - [Seções](#seções)
+  - [Ingredientes](#ingredientes)
   - [Pratos](#pratos)
   - [Fotos](#fotos)
 
@@ -263,41 +263,63 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   ```
   **IMPORTANTE**: Deve-se utilizar o bearer token (JWT) no header da requisição, pois o usuário precisa estar autenticado em quase todas as requisições da aplicação. Não precisarão de autenticação os recursos: Criar conta e Fazer login.
 
+#### Ingredientes
+- **mostrar todos os ingredientes** <br>
+  Para ver os ingredientes devemos:
+  - Usar o recurso: `ingredients`
+  - URL da rota: `http://localhost:3333/ingredients`
+  - Método de requisição: `GET`
+  - Padrão do corpo da requisição: `body`
+  - bearer token (JWT)
+
+  Será retornado as seguintes informações:
+
+  ```bash
+    [
+      {
+        "id": 68,
+        "name": "canela",
+        "food_id": 2
+      },
+      {
+        "id": 66,
+        "name": "maçã",
+        "food_id": 2
+      },
+      {
+        "id": 67,
+        "name": "whisky",
+        "food_id": 2
+      }
+    ]
+  ```
+
 #### Pratos
 - **Cadastrar/ Criar prato** <br>
   Para cadastrar/ criar um prato devemos:
   - Criar o recurso: `foods`
   - URL da rota: `http://localhost:3333/foods`
   - Método de requisição: `POST`
-  - Padrão do corpo da requisição: `Multipart` (formulário)
+  - Padrão do corpo da requisição: `JSON`
   - bearer token (JWT)
 
-  Deverá ser enviar um formulário contendo os campos name e value preenchidos com os dados do prato da seguinte forma:
-
-      name
-      - title
-      - category
-      - description
-      - price
-      - ingredients (conforme a quantidade de ingredientes)
-      - image
-
-      value
-      - Pomo bourbon
-      - Bebidas
-      - Maçã, whisky, canela. On the rocks.
-      - 29.97
-      - maçã
-      - whisky
-      - canela
-      - file (tipo de arquivo em formato de imagem)
+  ```bash
+  # Ficará assim:
+    {
+      "title": "Pomo bourbon",
+      "category": "Bebidas",
+      "description": "Maçã, whisky, canela. On the rocks.",
+      "price": "29.97",
+      "ingredients": ["maçã", "whisky", "canela"]
+    }
+  ```
 
   Será retornado uma resposta com o status code 201 se ok.
 
 - **Atualizar prato** <br>
-  Para cadastrar/ criar um usuário devemos:
+  Para atualizar um prato devemos:
   - Usar o recurso: `foods`
-  - URL da rota: `http://localhost:3333/foods/4` (id do prato que será atualizado)
+  - URL da rota: `http://localhost:3333/foods/1` (id do prato que será atualizado)
   - Método de requisição: `PUT`
   - Padrão do corpo da requisição: `JSON`
   - bearer token (JWT)
@@ -305,16 +327,11 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   ```bash
   # Ficará assim:
     {
-      "title": "Salada Molla",
-      "category": "Refeições",
-      "description": "Tomates, coentro, pepino, cebola roxa. Frescos e temperados.",
-      "price": "27.50",
-      "ingredients": [
-        {
-          "id": 15,
-          "name": "salada crespa"
-        }
-      ]
+      "title": "Pomo bourbon",
+      "category": "Bebidas",
+      "description": "Maçã, whisky, canela. On the rocks.",
+      "price": "19.97",
+      "ingredients": ["maçã", "whisky", "canela"]
     }
   ```
   **IMPORTANTE**: Apenas as informações passadas serão atualizadas.
@@ -322,9 +339,9 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   Será retornado uma resposta com o status code 200 se ok.
 
 - **Atualizar foto do prato** <br>
-  Para cadastrar/ criar um usuário devemos:
+  Para atualizar a foto de um prato devemos:
   - Usar o recurso: `foods`
-  - URL da rota: `http://localhost:3333/foods/4` (4 = id do prato que será excluído)
+  - URL da rota: `http://localhost:3333/foods/1` (1 = id do prato que terá a foto atualizada)
   - Método de requisição: `PATCH`
   - Padrão do corpo da requisição: `Multipart` (formulário)
   - bearer token (JWT)
@@ -341,19 +358,19 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
 
   ```bash
     {
-      "id": 4,
-      "category": "Refeições",
-      "title": "Salada de Mola",
-      "description": "Salada servida com tomates, coentro, pepino, cebola roxa e temperos.",
-      "price": 27.50,
-      "image": "46cc3f922a92483a00b2-Mask group-3.png",
-      "created_at": "2023-07-13 15:43:24",
-      "updated_at": "2023-07-18 17:04:59"
+      "id": 2,
+      "category": "Bebidas",
+      "title": "Pomo bourbon",
+      "description": "Maçã, whisky, canela. On the rocks.",
+      "price": 29.97,
+      "image": "b57a812f239ccf880439-Mask group-11.png",
+      "created_at": "2023-08-20 02:11:32",
+      "updated_at": "2023-08-20 02:11:32"
     }
   ```
 
 - **mostrar todos os prato** <br>
-  Para cadastrar/ criar um usuário devemos:
+  Para mostrar todos os pratos devemos:
   - Usar o recurso: `foods`
   - URL da rota: `http://localhost:3333/foods`
   - Método de requisição: `GET`
@@ -407,7 +424,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   **OBS**: Será retornado todos os pratos, porem aqui foi utilizado [...] para reduzir por questão de exemplificação.
 
 - **Pesquisar por prato especifico** <br>
-  Para cadastrar/ criar um usuário devemos:
+  Para pesquisar por um prato especifico devemos:
   - Usar o recurso: `foods`
   - URL da rota: `http://localhost:3333/foods/1` (1 = id do prato que será exibido)
   - Método de requisição: `GET`
@@ -430,7 +447,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   ```
 
 - **Deletar prato** <br>
-  Para cadastrar/ criar um usuário devemos:
+  Para deletar um prato devemos:
   - Usar o recurso: `foods`
   - URL da rota: `http://localhost:3333/foods/1` (1 = id do prato que será excluído)
   - Método de requisição: `DELETE`
