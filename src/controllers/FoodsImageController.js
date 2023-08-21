@@ -5,7 +5,7 @@ const DiskStorage = require("../providers/DiskStorage");
 class FoodsImageController {
   async update(request, response) {
     const { id } = request.params;
-    const foodFilename = request.file.filename;
+    const foodImage = request.file.filename;
     
     const diskStorage = new DiskStorage();
     
@@ -19,7 +19,7 @@ class FoodsImageController {
       await diskStorage.deleteFile(food.image);
     }
 
-    const filename = await diskStorage.saveFile(foodFilename);
+    const filename = await diskStorage.saveFile(foodImage);
     food.image = filename;
 
     await knex("foods").where({ id }).update(food);

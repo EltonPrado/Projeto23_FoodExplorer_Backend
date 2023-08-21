@@ -4,6 +4,7 @@ class IngredientsController {
   async index(request, response) {
     const ingredients = await knex("ingredients")
     .groupBy("name")
+    .orderBy("id")
 
     return response.json(ingredients);
   }
