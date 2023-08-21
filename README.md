@@ -230,6 +230,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
 
   Será retornado uma resposta com o status code 200 se ok.
 
+
 #### Seções
 - **Criar seção** <br>
   Para gerar um token de autenticação para a seção vamos usar:
@@ -247,7 +248,6 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   Se tudo der certo e o usuário estiver autenticado, você receberá como resposta as informações do usuário e o token da seguinte maneira:
 
   ```bash
-  # Ficará assim:
     {
       "user": {
         "id": 2,
@@ -263,13 +263,14 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   ```
   **IMPORTANTE**: Deve-se utilizar o bearer token (JWT) no header da requisição, pois o usuário precisa estar autenticado em quase todas as requisições da aplicação. Não precisarão de autenticação os recursos: Criar conta e Fazer login.
 
+
 #### Ingredientes
-- **mostrar todos os ingredientes** <br>
-  Para ver os ingredientes devemos:
+- **mostrar os ingredientes** <br>
+  Para mostrar todos os ingredientes devemos:
   - Usar o recurso: `ingredients`
   - URL da rota: `http://localhost:3333/ingredients`
   - Método de requisição: `GET`
-  - Padrão do corpo da requisição: `body`
+  - Padrão do corpo da requisição: `body` (padrão)
   - bearer token (JWT)
 
   Será retornado as seguintes informações:
@@ -277,22 +278,16 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   ```bash
     [
       {
-        "id": 68,
-        "name": "canela",
-        "food_id": 2
+        "id": 1,
+        "name": "alface",
+        "food_id": 1
       },
-      {
-        "id": 66,
-        "name": "maçã",
-        "food_id": 2
-      },
-      {
-        "id": 67,
-        "name": "whisky",
-        "food_id": 2
-      }
+
+      [...]
     ]
   ```
+  **OBS**: Será retornado todos os ingredientes cadastrados junto com os pratos, porem aqui foi utilizado [...] para reduzir por questão de exemplificação.
+
 
 #### Pratos
 - **Cadastrar/ Criar prato** <br>
@@ -313,7 +308,6 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
       "ingredients": ["maçã", "whisky", "canela"]
     }
   ```
-
   Será retornado uma resposta com o status code 201 se ok.
 
 - **Atualizar prato** <br>
@@ -369,16 +363,17 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
     }
   ```
 
-- **mostrar todos os prato** <br>
+- **mostrar todos os pratos** <br>
   Para mostrar todos os pratos devemos:
   - Usar o recurso: `foods`
   - URL da rota: `http://localhost:3333/foods`
   - Método de requisição: `GET`
-  - Padrão do corpo da requisição: `body`
+  - Padrão do corpo da requisição: `body` (padrão)
   - bearer token (JWT)
 
+  Será retornado as seguintes informações:
+
   ```bash
-  # Ficará assim:
     [
       {
         "id": 1,
@@ -393,32 +388,6 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
       },
 
       [...]
-
-      {
-        "id": 6,
-        "category": "Sobremesas",
-        "title": "Peachy pastrie",
-        "description": "Delicioso folheado de pêssego com folhas de hortelã.",
-        "price": 32.97,
-        "image": "6f8d72ead406b682a3a6-Mask group-5.png",
-        "created_at": "2023-07-13 16:15:49",
-        "updated_at": "2023-07-13 16:15:49",
-        "ingredients": [ <- 6 -> ]
-      },
-
-      [...]
-
-      {
-        "id": 12,
-        "category": "Bebidas",
-        "title": "Pomo bourbon",
-        "description": "Maçã, whisky, canela. On the rocks.",
-        "price": 29.97,
-        "image": "51a827b0df980de235d5-Mask group-11.png",
-        "created_at": "2023-07-13 16:43:35",
-        "updated_at": "2023-07-13 16:43:35",
-        "ingredients": [ <- 3 -> ]
-      }
     ]
   ```
   **OBS**: Será retornado todos os pratos, porem aqui foi utilizado [...] para reduzir por questão de exemplificação.
@@ -431,17 +400,18 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   - Padrão do corpo da requisição: `Body` (padrão)
   - bearer token (JWT)
 
+  Será retornado as seguintes informações:
+
   ```bash
-  # Ficará assim:
     {
       "id": 1,
       "category": "Refeições",
-      "title": "Salada Ravanello",
-      "description": "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.",
+      "title": "Salada Ravello",
+      "description": "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
       "price": 49.97,
-      "image": "dc892ae64ff157ff6306-Mask group.png",
-      "created_at": "2023-07-13 14:21:53",
-      "updated_at": "2023-07-13 15:02:47",
+      "image": "b7bf99ffe8a9c479cb1f-Mask group.png",
+      "created_at": "2023-08-21 18:37:14",
+      "updated_at": "2023-08-21 18:37:54",
       "ingredients": [ <- 4 -> ]
     }
   ```
@@ -454,6 +424,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   - Padrão do corpo da requisição: `Body` (padrão)
 
   Será retornado uma resposta com o status code 200 se ok.
+
 
 #### Fotos
 - **Mostrar foto de um prato** <br>
