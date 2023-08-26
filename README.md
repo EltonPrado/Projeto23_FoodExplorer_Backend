@@ -5,7 +5,7 @@
 <p align="center">
   <img 
     alt="imagem de capa do projeto" 
-    src=".github/capa.png" 
+    src=".github/cover.png" 
     width="100%"
   >
 </p>
@@ -46,7 +46,6 @@ Visto que temos duas personas, o fluxograma da aplicação ou as rotas de acesso
   >
 </p>
 
-<!--
 <br>
 
 Já para o diagrama foi utilizando a ferramenta online drawSQL. Com ela criou-se a estrutura do banco de dados da aplicação, que por sua vez, funcionará da seguinte forma:
@@ -60,15 +59,23 @@ Já para o diagrama foi utilizando a ferramenta online drawSQL. Com ela criou-se
     width="100%"
   >
 </p>
--->
+
 
 ### Deploy
 
 Quer conferir o FoodExplorer? [Visite o projeto online.]()
 
+Acesse utilizando uma das duas opções de login abaixo ou crie seu próprio usuário.
+
 ```bash
 # Login como admin:
 $ email: admin@email.com
+$ password: 123321
+```
+
+```bash
+# Login como user (já cadastrado):
+$ email: user@email.com
 $ password: 123321
 ```
 
