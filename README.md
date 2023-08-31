@@ -211,7 +211,6 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
       "name": "user",
       "email": "user@email.com",
       "password": "123",
-      "isAdmin": false
     }
   ```
   Será retornado uma resposta com o status code 201 se ok.
@@ -229,7 +228,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
     {
       "name": "user",
       "email": "user@email.com",
-      "password": "321",
+      "password": "123321",
       "old_password": "123"
     }
   ```
@@ -249,7 +248,7 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   # Ficará assim:
     {
       "email": "user@email.com",
-      "password": "321"
+      "password": "123321"
     }
   ```
   Se tudo der certo e o usuário estiver autenticado, você receberá como resposta as informações do usuário e o token da seguinte maneira:
