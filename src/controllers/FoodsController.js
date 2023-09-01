@@ -3,85 +3,79 @@ const DiskStorage = require("../providers/DiskStorage");
 
 class FoodsController {
   async create(request, response) {
-    const { title, category, description, price, ingredients } = request.body;
-    const foodImage = request.file;
-
-    let filename = null;
-
-    if(foodImage) {
-      const diskStorage = new DiskStorage();
-      filename = await diskStorage.saveFile(foodImage.filename);
-    }
-
-    const [food_id] = await knex("foods").insert({
-      image: filename,
-      title,
-      category,
-      description,
-      price
-    });
-
-    const hasOnlyOneIngredient = typeof(ingredients) === "string";
-
-    let ingredientsInsert;
-
-    if(hasOnlyOneIngredient) {
-      ingredientsInsert = {
-        name: ingredients,
-        food_id
-      }
-    } else if (ingredients.length > 1) {
-      ingredientsInsert = ingredients.map(ingredient => {
-        return {
-          name: ingredient,
-          food_id
-        }
-      });
-    } else {
-      return
-    }
-
-    await knex("ingredients").insert(ingredientsInsert);
+    try {
+      const { title, category, description, price, ingredients } = request.body;
+      const foodImage = request.file;
   
-    return response.status(201).json();
+      let filename = null;
+  
+      if (foodImage) {
+        const diskStorage = new DiskStorage();
+        filename = await diskStorage.saveFile(foodImage.filename);
+      }
+  
+      const [food_id] = await knex("foods").insert({
+        image: filename,
+        title,
+        category,
+        description,
+        price,
+      });
+  
+      if (ingredients) {
+        const ingredientsToInsert = Array.isArray(ingredients)
+          ? ingredients.map((ingredient) => ({
+              name: ingredient,
+              food_id,
+            }))
+          : [{ name: ingredients, food_id }];
+  
+        await knex("ingredients").insert(ingredientsToInsert);
+      }
+  
+      return response.status(201).json({ message: "Prato criado com sucesso" });
+    } catch (error) {
+      console.error("Erro na criação do prato:", error);
+      return response.status(500).json({ error: "Erro interno do servidor" });
+    }
   }
 
   async update(request, response) {
-    const { title, category, description, price, ingredients } = request.body;
-    const { id } = request.params;
+    try {
+      const { title, category, description, price, ingredients } = request.body;
+      const { id } = request.params;
 
-    const food = await knex("foods").where({ id }).first();
-    
-    food.title = title ?? food.title;
-    food.category = category ?? food.category;
-    food.description = description ?? food.description;
-    food.price = price ?? food.price;
+      const food = await knex("foods").where({ id }).first();
 
-    await knex("foods").where({ id }).update(food);
-    await knex("foods").where({ id }).update('updated_at', knex.fn.now());
-    await knex("ingredients").where({ food_id: id }).delete();
-
-    const hasOnlyOneIngredient = typeof(ingredients) === "string";
-
-    let ingredientsInsert;
-
-    if (hasOnlyOneIngredient) {
-      ingredientsInsert = {
-        name: ingredients,
-        food_id: id
+      if (!food) {
+        return response.status(404).json({ error: "Prato não encontrado" });
       }
-    } else if (ingredients.length > 1) {
-      ingredientsInsert = ingredients.map(ingredient => {
-        return {
-          name : ingredient,
-          food_id: id
-        }
-      })
       
-      await knex("ingredients").insert(ingredientsInsert)
-    }
+      const updatedFood = {
+        title: title ?? food.title,
+        description: description ?? food.description,
+        category: category ?? food.category,
+        price: price ?? food.price
+      };
 
-    return response.status(200).json();
+      await knex("foods").where({ id }).update(updatedFood);
+      await knex("foods").where({ id }).update('updated_at', knex.fn.now());
+
+      await knex("ingredients").where({ food_id: id }).delete();
+
+      if (ingredients) {
+        const ingredientsToInsert = Array.isArray(ingredients)
+          ? ingredients.map((ingredient) => ({ name: ingredient, food_id: id }))
+          : [{ name: ingredients, food_id: id }];
+
+        await knex("ingredients").insert(ingredientsToInsert);
+      }
+
+      return response.status(200).json({ message: "Prato atualizado com sucesso" });
+    } catch (error) {
+      console.error("Erro na atualização do prato:", error);
+      return response.status(500).json({ error: "Erro interno do servidor" });
+    }
   }
 
   async show(request, response) {
