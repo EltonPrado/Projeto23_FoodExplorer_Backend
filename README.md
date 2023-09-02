@@ -72,7 +72,7 @@ Já para o diagrama foi utilizando a ferramenta online drawSQL. Com ela criou-se
 
 ### Deploy
 
-Quer conferir o FoodExplorer? [Visite o projeto online.]()
+Quer conferir o FoodExplorer? [Visite o projeto online.](https://pffoodexplorer.netlify.app/)
 
 Acesse utilizando uma das duas opções de login abaixo ou crie seu próprio usuário.
 
