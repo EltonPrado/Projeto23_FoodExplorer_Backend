@@ -14,11 +14,20 @@
 
 <h2> Sumário </h2>
 
-1. [O projeto](#o-projeto)
-2. [Tecnologias, Bibliotecas e Ferramentas](#tecnologias-bibliotecas-e-ferramentas)
+1. [Aviso](#aviso)
+2. [O projeto](#o-projeto)
 3. [Funcionalidades](#funcionalidades)
 4. [Utilizando a API](#utilizando-a-api)
-5. [Autor](#autor)
+5. [Tecnologias, Bibliotecas e Ferramentas](#tecnologias-bibliotecas-e-ferramentas)
+6. [Autor](#autor)
+
+
+## Aviso
+**IMPORTANTE: O backend e o frontend da aplicação estão finalizados. Porem, poderão sofrer alterações, sendo acrescentados novas funcionalidades.**
+
+- Para mais informações, acessar o [Frontend da aplicação](https://github.com/EltonPrado/Projeto23_FoodExplorer_Frontend).
+
+- Você pode clonar o repositório e executar a aplicação localmente.
 
 
 ## O Projeto
@@ -79,33 +88,6 @@ $ email: user@email.com
 $ password: 123321
 ```
 
-**OBS: No momento está sendo desenvolvido o frontend da aplicação. Caso for necessário, o backend poderá sofrer refatoração para o melhoramento do mesmo.**
-
-
-## Tecnologias, Bibliotecas e Ferramentas
-
-Foram utilizadas as seguintes tecnologias, bibliotecas e ferramentas para o desenvolvimento do backend desse projeto:
-
-- **JavaScript** - Faz toda a lógica da aplicação;
-- **NodeJS** - Executa o JavaScript fora do navegador;
-  - **Express** - Framework responsável por lidar com as requisições HTTP;
-  - **Middleware** - Intercepta as solicitações-respostas da aplicação;
-  - **SQlite** - Faz o armazenamento dos dados;
-  - **bcryptjs** - Criptografa as senhas de usuário;
-  - **Knex** - Gera os comandos SQL;
-  - **JWT (JSONwebtoken)** - Faz a troca de informações no fluxo de autenticação entre aplicação e a API;
-  - **multer** - Gerencia o upload de imagens;
-  - **API Restful** - API que pode ser consumida cumprindo e aplicando as diretrizes RESTful;
-  - **Cors** - Faz a conexão entre o backend e o frontend da aplicação;
-  - **dotenv** - Cria variáveis de ambiente para lidar com dados sensíveis da aplicação;
-  - **PM2** - Mantém a API sempre em execução;
-  - **Deploy com render** - Utilizando o render para fazer a hospedagem do backend;
-  - **Jest** - Realiza testes automatizados de integração;
-- **Insomnia** - Lida com os testes da API fora do navegador;
-- **Beekeper Studio** - Auxilia na visualização e execução de funções em nosso banco da dados;
-- **Git** - Responsável por realizar o gerenciamento de versionamento do código;
-- **GitHub** - Utilizado para armazenar a aplicação em nuvem.
-
 
 ## Funcionalidades
 
@@ -115,6 +97,7 @@ A aplicação vai nos permitir:
 - [x] autenticar usuário para fazer login;
 - [x] Atualizar e-mail, senha ou nome de um usuário;
 - [x] Mostrar informações de um prato especifico;
+- [x] Favoritar pratos;
 - [x] Cadastrar, atualizar, mostrar ou deletar um prato.
 
 
@@ -441,6 +424,31 @@ Isso significa que o servidor estará sendo inicializado na porta:3333. Utilize 
   - Padrão do corpo da requisição: `Body` (padrão)
   
   Será retornado a imagem do prato como resposta.
+
+
+## Tecnologias, Bibliotecas e Ferramentas
+
+Foram utilizadas as seguintes tecnologias, bibliotecas e ferramentas para o desenvolvimento do backend desse projeto:
+
+- **JavaScript** - Faz toda a lógica da aplicação;
+- **NodeJS** - Executa o JavaScript fora do navegador;
+  - **Express** - Framework responsável por lidar com as requisições HTTP;
+  - **Middleware** - Intercepta as solicitações-respostas da aplicação;
+  - **SQlite** - Faz o armazenamento dos dados;
+  - **bcryptjs** - Criptografa as senhas de usuário;
+  - **Knex** - Gera os comandos SQL;
+  - **JWT (JSONwebtoken)** - Faz a troca de informações no fluxo de autenticação entre aplicação e a API;
+  - **multer** - Gerencia o upload de imagens;
+  - **API Restful** - API que pode ser consumida cumprindo e aplicando as diretrizes RESTful;
+  - **Cors** - Faz a conexão entre o backend e o frontend da aplicação;
+  - **dotenv** - Cria variáveis de ambiente para lidar com dados sensíveis da aplicação;
+  - **PM2** - Mantém a API sempre em execução;
+  - **Deploy com render** - Utilizando o render para fazer a hospedagem do backend;
+  - **Jest** - Realiza testes automatizados de integração;
+- **Insomnia** - Lida com os testes da API fora do navegador;
+- **Beekeper Studio** - Auxilia na visualização e execução de funções em nosso banco da dados;
+- **Git** - Responsável por realizar o gerenciamento de versionamento do código;
+- **GitHub** - Utilizado para armazenar a aplicação em nuvem.
 
 
 ## Autor
