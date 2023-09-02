@@ -4,7 +4,7 @@
   "description": "FoodExplorer é uma aplicação que simula um catalogo digital de um restaurante fictício",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "nodemon ./src/server.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run"
